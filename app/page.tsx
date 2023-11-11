@@ -1,9 +1,4 @@
-import DeployButton from '../components/DeployButton'
-import AuthButton from '../components/AuthButton'
 import { createClient } from '@/utils/supabase/server'
-import ConnectSupabaseSteps from '@/components/ConnectSupabaseSteps'
-import SignUpUserSteps from '@/components/SignUpUserSteps'
-import Header from '@/components/Header'
 import { cookies } from 'next/headers'
 
 export default async function Index() {
@@ -20,38 +15,42 @@ export default async function Index() {
     }
   }
 
+  function getGreetingBasedOnTime() {
+    const currentHour = new Date().getHours();
+    let greeting;
+
+    if (currentHour < 12 && currentHour > 4) {
+      greeting = 'Good morning';
+    } else if (currentHour < 18) {
+      greeting = 'Good afternoon';
+    } else {
+      greeting = 'Good evening';
+    }
+
+    return greeting;
+  }
+
+
   const isSupabaseConnected = canInitSupabaseClient()
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-        <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-          <DeployButton />
-          {isSupabaseConnected && <AuthButton />}
-        </div>
-      </nav>
+    <div className='bg-background1 w-full h-[100dvh] sm:w-fit sm:aspect-[9/16] sm:h-[100dvh]'>
+      <div className='p-5'>
+        <div> {/*Welcome Message */}
+          <p className='font-bold'>
+            {/* if morning say good morning, and if evening say good evening, and if afternoon say good afternoon */}
+            {getGreetingBasedOnTime()} Ariana
+          </p>
+          <div>
+            {/* show user photo */}
+            <div className='rounded-full h-20 w-20 bg-primary'>
 
-      <div className="animate-in flex-1 flex flex-col gap-20 opacity-0 max-w-4xl px-3">
-        <Header />
-        <main className="flex-1 flex flex-col gap-6">
-          <h2 className="font-bold text-4xl mb-4">Next steps</h2>
-          {isSupabaseConnected ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
-        </main>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <footer className="w-full border-t border-t-foreground/10 p-8 flex justify-center text-center text-xs">
-        <p>
-          Powered by{' '}
-          <a
-            href="https://supabase.com/?utm_source=create-next-app&utm_medium=template&utm_term=nextjs"
-            target="_blank"
-            className="font-bold hover:underline"
-            rel="noreferrer"
-          >
-            Supabase
-          </a>
-        </p>
-      </footer>
+
     </div>
   )
 }
