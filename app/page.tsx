@@ -51,10 +51,10 @@ export default async function Index() {
             </div>
           </div>
         </div>
-        <div>
+        <div className='font-semibold'>
           Today
         </div>
-        <div>
+        <div className='font-semibold'>
           Upcoming Tasks
         </div>
 

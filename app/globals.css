@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @layer base {
   :root {
     --background1: #FFFAFB;
@@ -11,6 +13,7 @@
     --foreground: #131515;
   }
 }
+
 
 .animate-in {
   animation: animateIn 0.3s ease 0.15s both;
