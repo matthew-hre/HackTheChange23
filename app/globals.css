@@ -30,6 +30,30 @@
   animation: animateIn 0.3s ease 0.15s both;
 }
 
+.debug-m * {
+  box-shadow: inset 0px 0px 1px 1px gold;
+}
+
+.debug-s {
+  box-shadow: inset 0px 0px 1px 1px red;
+}
+
+.debug-s-1 {
+  box-shadow: inset 0px 0px 1px 1px turquoise;
+}
+
+.debug-s-2 {
+  box-shadow: inset 0px 0px 1px 1px orange;
+}
+
+.debug{
+  box-shadow: inset 0px 0px 1px 1px lime;
+}
+
+.debug *{
+  box-shadow: inset 0px 0px 1px 1px magenta;
+}
+
 @keyframes animateIn {
   from {
     opacity: 0;
