@@ -20,11 +20,11 @@ export default async function Index() {
     let greeting;
 
     if (currentHour < 12 && currentHour > 4) {
-      greeting = 'Good morning';
+      greeting = 'Good morning,';
     } else if (currentHour < 18) {
-      greeting = 'Good afternoon';
+      greeting = 'Good afternoon,';
     } else {
-      greeting = 'Good evening';
+      greeting = 'Good evening,';
     }
 
     return greeting;
@@ -36,18 +36,28 @@ export default async function Index() {
   return (
     <div className='bg-background1 w-full h-[100dvh] sm:w-fit sm:aspect-[9/16] sm:h-[100dvh]'>
       <div className='p-5'>
-        <div> {/*Welcome Message */}
-          <p className='font-bold'>
-            {/* if morning say good morning, and if evening say good evening, and if afternoon say good afternoon */}
-            {getGreetingBasedOnTime()} Ariana
-          </p>
+        <div className='flex justify-between debug'> {/*Welcome Message */}
+          <div className='flex flex-col h-24 justify-between'>
+            <p className='font-bold text-2xl'>
+              {getGreetingBasedOnTime()} <br /> Ariana!
+            </p>
+            <p className='font-thin text-sm'>It's a wonderful day to be productive!</p>
+
+          </div>
           <div>
             {/* show user photo */}
-            <div className='rounded-full h-20 w-20 bg-primary'>
+            <div className='rounded-full h-24 w-24 bg-primary'>
 
             </div>
           </div>
         </div>
+        <div>
+          Today
+        </div>
+        <div>
+          Upcoming Tasks
+        </div>
+
       </div>
 
 
