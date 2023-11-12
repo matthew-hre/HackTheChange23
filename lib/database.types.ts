@@ -12,6 +12,7 @@ export interface Database {
       calendar_events: {
         Row: {
           attendees: string | null
+          colour: string | null
           conferencedata: string | null
           conferenceid: string | null
           created: string | null
@@ -39,6 +40,7 @@ export interface Database {
         }
         Insert: {
           attendees?: string | null
+          colour?: string | null
           conferencedata?: string | null
           conferenceid?: string | null
           created?: string | null
@@ -66,6 +68,7 @@ export interface Database {
         }
         Update: {
           attendees?: string | null
+          colour?: string | null
           conferencedata?: string | null
           conferenceid?: string | null
           created?: string | null
@@ -90,6 +93,27 @@ export interface Database {
           summary?: string | null
           updated?: string | null
           usedefault?: boolean | null
+        }
+        Relationships: []
+      }
+      messages: {
+        Row: {
+          created_at: string
+          id: number
+          is_from_user: boolean | null
+          message: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          is_from_user?: boolean | null
+          message?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          is_from_user?: boolean | null
+          message?: string | null
         }
         Relationships: []
       }
