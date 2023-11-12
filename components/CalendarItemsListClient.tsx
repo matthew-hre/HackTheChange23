@@ -23,7 +23,7 @@ const CalendarItemsListClient = ({ events }: { events: any[] }) => {
         >
           <div className="bg-primary w-16 h-16 rounded-lg"></div>
           <p className="font-normal debug-s flex-grow p-2">{event.summary}</p>
-          <p className="font-normal">{formatDate(event.start_datetime)}</p>
+          <p className="font-normal">{formatDate(event.start)}</p>
         </div>
       ))}
     </div>
