@@ -1,15 +1,54 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HiPaperAirplane } from "react-icons/hi";
+
+
+
+  // add to messages state
+
 
 const ChatInterfaceClient = ({
   handleSendServer,
-  messages,
+  // messages,
 }: {
   handleSendServer: (message: string) => void;
-  messages: { content: string; fromUser: boolean; timestamp: Date }[];
+  // messages: { content: string; fromUser: boolean; timestamp: Date }[];
 }) => {
+
+
+  const [messages, setMessages] = useState([
+    {
+      content: "Hello",
+      fromUser: true,
+      timestamp: new Date(),
+    },
+    {
+      content: "Hey! How can I help you Today?",
+      fromUser: false,
+      timestamp: new Date(),
+    },
+  ]);
+  
+  useEffect(() => {
+    // fetch from http://localhost:3001/messages
+  
+    try {
+      fetch("http://localhost:3001/messages")
+        .then((response) => response.json())
+        .then((data) => {
+          setMessages(data);
+        }).catch((error) => {
+          console.log(error);
+        });
+    } catch (error) {
+      console.log(error);
+
+    }
+    
+    });
+
+
   const inputRef = useRef<HTMLInputElement>(null);
   const handleSend = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

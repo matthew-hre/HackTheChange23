@@ -1,6 +1,8 @@
 import ChatInterfaceClient from "@/components/ChatInterfaceClient";
 import addMessageToDatabase from "@/hooks/addMessageToDatabase";
+import getMessageFromDatabase from "@/hooks/getMessageFromDatabase";
 import getEventsFromCalendar from "@/hooks/getEventsFromCalendar";
+
 
 import OpenAI from "openai";
 
@@ -9,6 +11,9 @@ const openAIClient = new OpenAI({
 });
 
 const tryChat = async (message: string) => {
+
+  await addMessageToDatabase(message, true);
+
   console.log("tryChat Started");
   const calendarData = await getEventsFromCalendar();
 
@@ -68,7 +73,12 @@ const tryChat = async (message: string) => {
 
   // @ts-ignore
   console.log(runResults.data[0].content[0].text.value);
+
+  // write to supabase messages table
+    // @ts-ignore
+  await addMessageToDatabase(runResults.data[0].content[0].text.value, false);
 };
+
 
 const ChatInterfaceServer = () => {
   // add some simple chat logic here
@@ -85,15 +95,17 @@ const ChatInterfaceServer = () => {
     },
   ];
 
+
   const handleSendServer = async (message: string) => {
     "use server";
     await tryChat(message);
+
   };
 
   return (
     <ChatInterfaceClient
       handleSendServer={handleSendServer}
-      messages={messages}
+      // messages={messages}
     />
   );
 };
