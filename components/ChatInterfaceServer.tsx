@@ -12,7 +12,7 @@ const tryChat = async (message: string) => {
   console.log("tryChat Started");
   const calendarData = await getEventsFromCalendar();
 
-  console.log("calendarData: " + JSON.stringify(calendarData, null, 2));
+  // console.log("calendarData: " + JSON.stringify(calendarData, null, 2));
 
   const assistant = await openAIClient.beta.assistants.create({
     name: "CalPal",
@@ -23,7 +23,7 @@ const tryChat = async (message: string) => {
 
   const thread = await openAIClient.beta.threads.create();
 
-  console.log("thread.id: " + thread.id);
+  //console.log("thread.id: " + thread.id);
 
   const messageToSend = await openAIClient.beta.threads.messages.create(
     thread.id,
@@ -53,7 +53,7 @@ const tryChat = async (message: string) => {
       run.id
     );
 
-    console.log("runStatus.status: " + runStatus.status);
+    //console.log("runStatus.status: " + runStatus.status);
 
     if (runStatus.status === "failed") {
       return "Sorry, I couldn't understand that. Please try again.";
@@ -67,7 +67,7 @@ const tryChat = async (message: string) => {
   const runResults = await openAIClient.beta.threads.messages.list(thread.id);
 
   // @ts-ignore
-  console.log(runResults.data[0].content[0].text.value);
+  //console.log(runResults.data[0].content[0].text.value);
 };
 
 const ChatInterfaceServer = () => {
