@@ -2,6 +2,7 @@ import CalendarItemsTodayListServer from "@/components/CalendarItemsTodayListSer
 import CalendarItemsUpComingListServer from "@/components/CalendarItemsUpComingListServer";
 import ChatInterfaceServer from "@/components/ChatInterfaceServer";
 import WelcomeMessage from "@/components/WelcomeMessage";
+import NavBar from "@/components/NavBar";
 
 export default async function Index() {
   function humanreadableDate(date: Date) {
@@ -49,6 +50,7 @@ export default async function Index() {
           <CalendarItemsUpComingListServer />
         </div>
       </div>
+      <NavBar />
     </div>
   );
 }
