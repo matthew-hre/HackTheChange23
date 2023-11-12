@@ -38,19 +38,22 @@ export default async function Index() {
   }
 
   return (
-    <div className="">
-      <div className="p-5">
-        <WelcomeMessage />
-        <div className="font-semibold mt-5">
-          Today's Plan - {humanreadableDate(new Date())}
-          <CalendarItemsTodayListServer />
-        </div>
-        <div className="font-semibold">
-          Upcoming Tasks
-          <CalendarItemsUpComingListServer />
+    <>
+      <div className="h-full overflow-auto">
+        <div className="p-5 mb-28">
+          <WelcomeMessage />
+          <div className="font-semibold mt-5">
+            Today's Plan - {humanreadableDate(new Date())}
+            <CalendarItemsTodayListServer />
+          </div>
+          <div className="font-semibold">
+            Upcoming Tasks
+            <CalendarItemsUpComingListServer />
+          </div>
         </div>
       </div>
       <NavBar />
-    </div>
+    </>
+
   );
 }
