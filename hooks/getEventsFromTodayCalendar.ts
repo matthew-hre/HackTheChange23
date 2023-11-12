@@ -14,6 +14,7 @@ export default async function getEventsFromTodayCalendar() {
 			throw error;
 		}
 
+
 		const filteredData = data.map((event) => {
 			return {
 				summary: event.summary,

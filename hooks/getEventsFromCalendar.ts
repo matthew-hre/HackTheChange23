@@ -1,6 +1,7 @@
 import SupabaseClient from "@/components/SupabaseClient";
 
 export default async function getEventsFromCalendar() {
+
   //get todays date
   const today = new Date();
 

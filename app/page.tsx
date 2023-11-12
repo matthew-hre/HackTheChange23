@@ -32,6 +32,7 @@ export default async function Index() {
         <WelcomeMessage />
         <div className="font-semibold mt-5">
           Today's Plan - {humanreadableDate(new Date())}
+
           <CalendarItemsTodayListServer />
         </div>
         <div className="font-semibold">
@@ -40,6 +41,7 @@ export default async function Index() {
         </div>
       </div>
       <ChatInterfaceServer />
+
     </div>
   );
 }
