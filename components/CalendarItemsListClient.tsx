@@ -16,17 +16,38 @@ const CalendarItemsListClient = ({ events }: { events: any[] }) => {
     return `${hours}:${minutesString} ${tag}`;
   }
 
+  function humanreadableDate(date: Date) {
+    // Create a new Date object for the current date and time
+    const today = new Date();
+
+    // Array of month names
+    const months = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+
+    // Get the day, month, and year from the date object
+    const day = date.getDate();                // Day (1-31)
+    const month = months[date.getMonth()];    // Month name
+    const year = date.getFullYear();           // Year
+
+    // Format the date as a string in the format "Month DD, YYYY"
+    const readableDate = `${month} ${day}, ${year}`;
+
+    // Output the formatted date
+    return (readableDate);
+  }
+
 
   return (
     <div className="custom-shadow rounded-md my-2 p-2 ">
       {events.map((event) => (
-        console.log("event" + event),
         <div key={event.id} className="border-b-2 border-gray-200 last:border-b-0 flex py-3 justify-between">
           <div className={`w-14 h-14 rounded-lg p-1`} style={{ backgroundColor: "#" + event.color }}>
 
 
           </div>
-          <p className="font-normal flex-grow p-2">{event.summary}</p>
+          <div className="flex-grow flex flex-col justify-center ">
+            <p className="font-normal px-2 h-6 text-sm">{event.summary}</p>
+          </div>
           <div className="h-14 flex justify-around flex-col">
             <p className="font-normal h-5 rounded-full py-0.5 px-2 text-xs text-white text-center" style={{ backgroundColor: "#" + event.color }}>{formatDate(event.start)}</p>
             <p className="font-normal h-5 rounded-full py-0.5 px-2 text-xs text-white text-center" style={{ backgroundColor: "#" + event.color }}>{formatDate(event.end)}</p>
