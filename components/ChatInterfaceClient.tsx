@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef } from "react";
+import { HiPaperAirplane } from "react-icons/hi";
 
 const ChatInterfaceClient = ({
   handleSendServer,
   messages,
 }: {
   handleSendServer: (message: string) => void;
-  messages: string[];
+  messages: { content: string; fromUser: boolean; timestamp: Date }[];
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const handleSend = (e: React.FormEvent<HTMLFormElement>) => {
@@ -24,24 +25,40 @@ const ChatInterfaceClient = ({
   return (
     <div
       // stick at the bottom of the screen
-      className="flex flex-col gap-2 fixed bottom-0 w-96 p-2 bg-background2 rounded-t-md"
+      className="flex flex-col gap-2 w-full h-full p-2 bg-background2 justify-between rounded-t-md"
     >
       <div className="flex flex-col gap-2">
-        {messages.map((message) => (
-          <div className="flex flex-col gap-1" key={message}>
-            <p className="text-sm">{message}</p>
-          </div>
-        ))}
+        {messages.map((message) =>
+          message.fromUser ? (
+            <div
+              className="flex flex-col gap-1 bg-blue-500 rounded-md p-2 px-3 self-end text-white rounded-br-none"
+              key={message.content}
+            >
+              <p className="text-sm">{message.content}</p>
+            </div>
+          ) : (
+            <div
+              className="flex flex-col gap-1 bg-gray-300 rounded-md p-2 px-3 self-start rounded-bl-none
+            "
+              key={message.content}
+            >
+              <p className="text-sm">{message.content}</p>
+            </div>
+          )
+        )}
       </div>
       <form className="flex gap-2" onSubmit={handleSend}>
         <input
-          className="flex-grow rounded-md bg-background3 p-2"
+          className="flex-grow rounded-md bg-background3 p-2 hover:border-blue-500 border-2 border-transparent focus:border-blue-500 focus:outline-none transition"
           type="text"
           placeholder="Type a message..."
           ref={inputRef}
         />
-        <button className="rounded-md bg-btn-background hover:bg-btn-background-hover p-2">
-          Send
+        <button
+          className="rounded-full bg-blue-500 p-2 aspect-[1/1] flex items-center justify-center hover:bg-blue-600 transition"
+          type="submit"
+        >
+          <HiPaperAirplane className="text-white mb-1" size={24} />
         </button>
       </form>
     </div>

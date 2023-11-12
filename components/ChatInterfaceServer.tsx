@@ -12,8 +12,6 @@ const tryChat = async (message: string) => {
   console.log("tryChat Started");
   const calendarData = await getEventsFromCalendar();
 
-  // console.log("calendarData: " + JSON.stringify(calendarData, null, 2));
-
   const assistant = await openAIClient.beta.assistants.create({
     name: "CalPal",
     description: "An assistant to help you manage your calendar",
@@ -72,7 +70,18 @@ const tryChat = async (message: string) => {
 
 const ChatInterfaceServer = () => {
   // add some simple chat logic here
-  const messages = ["Hello", "How are you?"];
+  const messages = [
+    {
+      content: "Hello",
+      fromUser: true,
+      timestamp: new Date(),
+    },
+    {
+      content: "Hey! How can I help you?",
+      fromUser: false,
+      timestamp: new Date(),
+    },
+  ];
 
   const handleSendServer = async (message: string) => {
     "use server";
