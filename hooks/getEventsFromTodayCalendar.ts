@@ -13,7 +13,18 @@ export default async function getEventsFromTodayCalendar() {
 			console.error(error);
 			throw error;
 		}
-		return data;
+
+
+		const filteredData = data.map((event) => {
+			return {
+				summary: event.summary,
+				start: event.start_datetime,
+				end: event.end_datetime,
+				color: event.colour,
+			};
+		}, []);
+
+		return filteredData;
 	} catch (error) {
 		console.error(error);
 		throw error;
