@@ -1,12 +1,10 @@
 import { debug } from "console";
 
 const CalendarItemsListClient = ({ events }: { events: any[] }) => {
-
   const formatDate = (date: string) => {
     const dateObj = new Date(date);
     let hours = dateObj.getHours() + 7;
     let minutes = dateObj.getMinutes();
-
     //add leading zero
     let minutesString = minutes < 10 ? '0' + minutes as string : minutes as unknown as string;
 
@@ -17,6 +15,7 @@ const CalendarItemsListClient = ({ events }: { events: any[] }) => {
 
     return `${hours}:${minutesString} ${tag}`;
   }
+
 
   return (
     <div className="custom-shadow rounded-md my-2 p-2 ">
@@ -32,6 +31,7 @@ const CalendarItemsListClient = ({ events }: { events: any[] }) => {
             <p className="font-normal h-5 rounded-full py-0.5 px-2 text-xs text-white text-center" style={{ backgroundColor: "#" + event.colour }}>{formatDate(event.start_datetime)}</p>
             <p className="font-normal h-5 rounded-full py-0.5 px-2 text-xs text-white text-center" style={{ backgroundColor: "#" + event.colour }}>{formatDate(event.end_datetime)}</p>
           </div>
+
         </div>
       ))}
     </div>
