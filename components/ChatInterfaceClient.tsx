@@ -23,11 +23,8 @@ const ChatInterfaceClient = ({
 
   return (
     <div
-      className="flex flex-col
-        w-full h-full
-        bg-background2 rounded-xl
-        p-4
-        "
+      // stick at the bottom of the screen
+      className="flex flex-col gap-2 fixed bottom-0 w-96 p-2 bg-background2 rounded-t-md"
     >
       <div className="flex flex-col gap-2">
         {messages.map((message) => (

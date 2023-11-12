@@ -1,5 +1,6 @@
 import CalendarItemsTodayListServer from "@/components/CalendarItemsTodayListServer";
 import CalendarItemsUpComingListServer from "@/components/CalendarItemsUpComingListServer";
+import ChatInterfaceServer from "@/components/ChatInterfaceServer";
 import WelcomeMessage from "@/components/WelcomeMessage";
 
 export default async function Index() {
@@ -16,6 +17,7 @@ export default async function Index() {
           <CalendarItemsUpComingListServer />
         </div>
       </div>
+      <ChatInterfaceServer />
     </div>
   );
 }
