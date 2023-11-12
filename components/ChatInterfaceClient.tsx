@@ -34,7 +34,7 @@ const ChatInterfaceClient = ({
     // fetch from http://localhost:3001/messages
   
     try {
-      fetch("http://localhost:3001/messages")
+      fetch("http://dns.phantommedia.online:3000/messages")
         .then((response) => response.json())
         .then((data) => {
           setMessages(data);
