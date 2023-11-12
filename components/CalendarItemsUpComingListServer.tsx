@@ -1,9 +1,9 @@
 import { CalendarItemsListClient } from "@/components/CalendarItemsListClient";
 
-import getEventsFromCalendar from "@/hooks/getEventsFromCalendar";
+import getEventsFromUpComingCalendar from "@/hooks/getEventsFromUpComingCalendar";
 
 const CalendarItemsListServer = async () => {
-  const events = await getEventsFromCalendar();
+  const events = await getEventsFromUpComingCalendar();
 
   return <CalendarItemsListClient events={events} />;
 };

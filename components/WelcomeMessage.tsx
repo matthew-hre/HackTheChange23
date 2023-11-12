@@ -22,9 +22,9 @@ const getUserName = () => {
 
 const WelcomeMessage = () => {
   return (
-    <div className="flex justify-between debug">
-      <div className="flex flex-col h-24 justify-between">
-        <p className="font-bold text-2xl">
+    <div className="flex justify-between">
+      <div className="flex flex-col h-20 justify-between">
+        <p className="font-bold text-xl">
           {getGreetingBasedOnTime()} <br />
           {getUserName()}!
         </p>
@@ -35,7 +35,7 @@ const WelcomeMessage = () => {
       <div>
         <img
           src={getUserProfilePicture()}
-          className="h-24 w-24 rounded-full"
+          className="h-20 w-20 rounded-full"
           alt="profile picture"
         />
       </div>
