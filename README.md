@@ -4,7 +4,7 @@
 
 CalPal is an innovative application designed to assist students in achieving a balanced and sustainable schedule. Leveraging the power of AI, this intuitive chatbot integrates seamlessly with Google Calendar, providing an automated assistant experience that reads and modifies your calendar events effortlessly.
 
-![Main Screen](https://i.imgur.com/sGCeZOj.png | width=200)
+![Main Screen](https://i.imgur.com/sGCeZOj.png)
 
 ## Key Features
 
@@ -33,7 +33,7 @@ CalPal is an innovative application designed to assist students in achieving a b
 
 This is the main screen where users interact with CalPal.
 
-![Main Screen](https://i.imgur.com/sGCeZOj.png | width=200)
+![Main Screen](https://i.imgur.com/sGCeZOj.png)
 
 ### Calendar View
 
