@@ -11,7 +11,7 @@ function getGreetingBasedOnTime() {
 }
 
 const getUserProfilePicture = () => {
-  return "https://avatars.githubusercontent.com/u/46040643?v=4";
+  return "https://hips.hearstapps.com/hmg-prod/images/ariana_grande_photo_jon_kopaloff_getty_images_465687098.jpg?resize=1200:*";
   // TODO: get user profile picture from supabase
 };
 
