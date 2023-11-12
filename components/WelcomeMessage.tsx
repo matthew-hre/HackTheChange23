@@ -1,3 +1,5 @@
+import ariana from "@/images/Ariana_icon.png";
+
 function getGreetingBasedOnTime() {
   const currentHour = new Date().getHours();
 
@@ -11,7 +13,7 @@ function getGreetingBasedOnTime() {
 }
 
 const getUserProfilePicture = () => {
-  return "https://hips.hearstapps.com/hmg-prod/images/ariana_grande_photo_jon_kopaloff_getty_images_465687098.jpg?resize=1200:*";
+  return ariana;
   // TODO: get user profile picture from supabase
 };
 
