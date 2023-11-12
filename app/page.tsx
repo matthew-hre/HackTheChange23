@@ -2,6 +2,7 @@ import CalendarItemsTodayListServer from "@/components/CalendarItemsTodayListSer
 import CalendarItemsUpComingListServer from "@/components/CalendarItemsUpComingListServer";
 import ChatInterfaceServer from "@/components/ChatInterfaceServer";
 import WelcomeMessage from "@/components/WelcomeMessage";
+import NavBar from "@/components/NavBar";
 
 export default async function Index() {
   function humanreadableDate(date: Date) {
@@ -37,18 +38,22 @@ export default async function Index() {
   }
 
   return (
-    <div className="">
-      <div className="p-5">
-        <WelcomeMessage />
-        <div className="font-semibold mt-5">
-          Today's Plan - {humanreadableDate(new Date())}
-          <CalendarItemsTodayListServer />
-        </div>
-        <div className="font-semibold">
-          Upcoming Tasks
-          <CalendarItemsUpComingListServer />
+    <>
+      <div className="h-full overflow-auto">
+        <div className="p-5 mb-28">
+          <WelcomeMessage />
+          <div className="font-semibold mt-5">
+            Today's Plan - {humanreadableDate(new Date())}
+            <CalendarItemsTodayListServer />
+          </div>
+          <div className="font-semibold">
+            Upcoming Tasks
+            <CalendarItemsUpComingListServer />
+          </div>
         </div>
       </div>
-    </div>
+      <NavBar />
+    </>
+
   );
 }
