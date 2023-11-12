@@ -1,6 +1,6 @@
 import { debug } from "console";
 
-const CalendarItemsListClient = ({ events }: { events: any[] }) => {
+const CalendarItemsListClient = ({ events, showdate }: { events: any[], showdate: boolean }) => {
   const formatDate = (date: string) => {
     const dateObj = new Date(date);
     let hours = dateObj.getHours() + 7;
@@ -62,7 +62,11 @@ const CalendarItemsListClient = ({ events }: { events: any[] }) => {
             className={`w-14 h-14 rounded-lg p-1`}
             style={{ backgroundColor: "#" + event.color }}
           ></div>
-          <p className="font-normal flex-grow px-2">{event.summary}</p>
+          <div className="flex-grow flex flex-col justify-center">
+
+            {showdate ? <p className="font-semibold px-2">{humanreadableDate(new Date(event.start))}</p> : null}
+            <p className="font-normal text-sm px-2 truncate text-ellipsis ">{event.summary}</p>
+          </div>
           <div className="h-14 flex justify-around flex-col">
             <p
               className="font-normal h-5 rounded-full py-0.5 px-2 text-xs text-white text-center"
