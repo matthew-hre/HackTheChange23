@@ -13,7 +13,7 @@ function getGreetingBasedOnTime() {
 }
 
 const getUserProfilePicture = () => {
-  return ariana;
+  return "https://raw.githubusercontent.com/matthew-hre/HackTheChange23/main/images/Ariana_icon.png";
   // TODO: get user profile picture from supabase
 };
 
